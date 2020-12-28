@@ -51,6 +51,15 @@
             </form>
         </div>
     </nav>
+    <div class="container my-4">
+        <div class="jumbotron">
+            <h1 class="display-4">Current time Is: <span id="time"></span></h1>
+           
+            <hr class="my-4">
+            <p>We are here to show you the time for our country</p>
+            <a class="btn btn-primary btn-lg" href="#" role="button">Browse Times</a>
+        </div>
+    </div>
 
     <div class="container my-4">
         <h2 class="text-center">TODOs List</h2>
@@ -107,6 +116,16 @@
         integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI"
         crossorigin="anonymous"></script>
         <script>
+             let a;
+        let date;
+        let time;
+        const options = { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' };
+        setInterval(() => {
+            a = new Date(); 
+            date = a.toLocaleDateString(undefined, options);
+            time = a.getHours() + ':' + a.getMinutes() + ':' + a.getSeconds();
+            document.getElementById('time').innerHTML = time + "<br>on " + date;
+        }, 1000);
             function getAndUpdate(){
                 console.log("Updating List...");
                 tit = document.getElementById('title').value;
